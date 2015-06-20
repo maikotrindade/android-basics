@@ -20,6 +20,10 @@
             android:name=".LifecycleActivity"
             android:label="@string/title_activity_lifecycle" >
         </activity>
+        <activity
+            android:name=".swipeTabs.SwipeTabsMainActivity"
+            android:label="@string/title_activity_swipe_tabs" >
+        </activity>
     </application>
 
 </manifest>

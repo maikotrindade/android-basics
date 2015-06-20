@@ -2,4 +2,9 @@
     <string name="app_name">Android Basics</string>
     <string name="title_activity_lifecycle">LifecycleActivity</string>
     <string name="lbl_activity_lifecycle">Activity Lifecycle</string>
+    <string name="first_tab">First Tab</string>
+    <string name="second_tab">Second Tab</string>
+    <string name="third_tab">Third Tab</string>
+    <string name="lbl_swipe_tabs">Swipe Tabs</string>
+    <string name="title_activity_swipe_tabs">Swipe Tabs</string>
 </resources>
