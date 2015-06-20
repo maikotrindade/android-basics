@@ -20,4 +20,11 @@
         android:layout_height="wrap_content"
         android:text="@string/lbl_swipe_tabs"
         android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/floatingEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_floating_edit_text"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>

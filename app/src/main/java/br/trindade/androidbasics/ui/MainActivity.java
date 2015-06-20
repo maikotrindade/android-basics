@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button btnLifecycle;
     private Button btnSwipeTabs;
+    private Button btnFloatEdtTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,18 +26,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void bindButtons() {
         btnLifecycle = AppUtil.get(findViewById(R.id.lifecycle));
         btnLifecycle.setOnClickListener(this);
-
         btnSwipeTabs = AppUtil.get(findViewById(R.id.swipeTabs));
         btnSwipeTabs.setOnClickListener(this);
+        btnFloatEdtTxt = AppUtil.get(findViewById(R.id.floatingEditText));
+        btnFloatEdtTxt.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.lifecycle:
-                startActivity(new Intent(MainActivity.this, LifecycleActivity.class));
+                startActivity(new Intent(MainActivity.this, LifecycleActivity.class)); break;
             case R.id.swipeTabs:
-                startActivity(new Intent(MainActivity.this, SwipeTabsMainActivity.class));
+                startActivity(new Intent(MainActivity.this, SwipeTabsMainActivity.class)); break;
+            case R.id.floatingEditText:
+                startActivity(new Intent(MainActivity.this, FloatingEditTextActivity.class)); break;
         }
     }
 }
