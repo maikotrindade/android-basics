@@ -12,9 +12,10 @@ import br.trindade.androidbasics.util.AppUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btnLifecycle;
-    private Button btnSwipeTabs;
-    private Button btnFloatEdtTxt;
+    private Button mBtnLifecycle;
+    private Button mBtnSwipeTabs;
+    private Button mBtnFloatEdtTxt;
+    private Button mBtnSavingFiles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +25,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void bindButtons() {
-        btnLifecycle = AppUtil.get(findViewById(R.id.lifecycle));
-        btnLifecycle.setOnClickListener(this);
-        btnSwipeTabs = AppUtil.get(findViewById(R.id.swipeTabs));
-        btnSwipeTabs.setOnClickListener(this);
-        btnFloatEdtTxt = AppUtil.get(findViewById(R.id.floatingEditText));
-        btnFloatEdtTxt.setOnClickListener(this);
+        mBtnLifecycle = AppUtil.get(findViewById(R.id.lifecycle));
+        mBtnLifecycle.setOnClickListener(this);
+        mBtnSwipeTabs = AppUtil.get(findViewById(R.id.swipeTabs));
+        mBtnSwipeTabs.setOnClickListener(this);
+        mBtnFloatEdtTxt = AppUtil.get(findViewById(R.id.floatingEditText));
+        mBtnFloatEdtTxt.setOnClickListener(this);
+        mBtnSavingFiles = AppUtil.get(findViewById(R.id.savingFiles));
+        mBtnSavingFiles.setOnClickListener(this);
     }
 
     @Override
@@ -41,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this, SwipeTabsMainActivity.class)); break;
             case R.id.floatingEditText:
                 startActivity(new Intent(MainActivity.this, FloatingEditTextActivity.class)); break;
+            case R.id.savingFiles:
+                startActivity(new Intent(MainActivity.this, SavingFilesActivity.class)); break;
         }
     }
 }

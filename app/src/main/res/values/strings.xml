@@ -15,5 +15,10 @@
     <string name="lbl_location">Location EditText</string>
     <string name="lbl_upload">Upload EditText</string>
     <string name="lbl_date">Date EditText</string>
+    <string name="title_activity_saving_files">SavingFilesActivity</string>
+    <string name="lbl_internal_private">Saving Internal And Private</string>
+    <string name="lbl_saving_files">Saving Files</string>
+    <string name="lbl_external">External</string>
+    <string name="lbl_external_removable">External And Removable</string>
 
 </resources>

@@ -3,35 +3,29 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:orientation="vertical">
-
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="br.trindade.androidbasics.ui.SavingFilesActivity">
 
     <Button
-        android:id="@+id/lifecycle"
+        android:id="@+id/internalPrivate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/lbl_activity_lifecycle"
+        android:text="@string/lbl_internal_private"
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/swipeTabs"
+        android:id="@+id/external"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/lbl_swipe_tabs"
+        android:text="@string/lbl_external"
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/floatingEditText"
+        android:id="@+id/externalRemovable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/lbl_floating_edit_text"
+        android:text="@string/lbl_external_removable"
         android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:id="@+id/savingFiles"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/lbl_saving_files"
-        android:layout_gravity="center_horizontal" />
 </LinearLayout>
