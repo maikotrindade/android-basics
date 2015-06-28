@@ -20,5 +20,6 @@
     <string name="lbl_saving_files">Saving Files</string>
     <string name="lbl_external">External</string>
     <string name="lbl_external_removable">External And Removable</string>
+    <string name="lbl_info">Info</string>
 
 </resources>

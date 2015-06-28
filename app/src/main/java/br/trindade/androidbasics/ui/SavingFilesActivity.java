@@ -3,7 +3,6 @@ package br.trindade.androidbasics.ui;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +16,7 @@ import br.trindade.androidbasics.util.AppUtil;
 /**
  * @author maiko.trindade
  */
-public class SavingFilesActivity extends AppCompatActivity implements View.OnClickListener {
+public class SavingFilesActivity extends BaseActivity implements View.OnClickListener {
 
     private Button mBtnInternalPrivate;
     private Button mBtnExternal;

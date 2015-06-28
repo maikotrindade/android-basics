@@ -3,12 +3,11 @@ package br.trindade.androidbasics.ui;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 
 /**
  * @author maiko.trindade
  */
-public class LifecycleActivity extends AppCompatActivity {
+public class LifecycleActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

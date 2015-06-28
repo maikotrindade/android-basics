@@ -1,7 +1,6 @@
 package br.trindade.androidbasics.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -12,7 +11,7 @@ import br.trindade.androidbasics.util.AppUtil;
 /**
  * @author maiko.trindade
  */
-public class FloatingEditTextActivity extends ActionBarActivity implements View.OnTouchListener {
+public class FloatingEditTextActivity extends BaseActivity implements View.OnTouchListener {
 
     private EditText editTextLocation;
     private EditText editTextUpload;
