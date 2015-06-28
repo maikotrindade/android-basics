@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import br.trindade.androidbasics.util.AppUtil;
 
+/**
+ * @author maiko.trindade
+ */
 public class FloatingEditTextActivity extends ActionBarActivity implements View.OnTouchListener {
 
     private EditText editTextLocation;

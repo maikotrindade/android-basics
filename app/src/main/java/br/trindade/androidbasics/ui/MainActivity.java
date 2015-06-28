@@ -9,7 +9,9 @@ import android.widget.Button;
 import br.trindade.androidbasics.ui.swipeTabs.SwipeTabsMainActivity;
 import br.trindade.androidbasics.util.AppUtil;
 
-
+/**
+ * @author maiko.trindade
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBtnLifecycle;
