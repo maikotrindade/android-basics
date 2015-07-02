@@ -3,11 +3,14 @@ package br.trindade.androidbasics.ui;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 
 /**
  * @author maiko.trindade
  */
 public class LifecycleActivity extends BaseActivity {
+
+    public final static String TAG = LifecycleActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +44,15 @@ public class LifecycleActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        showDialog ("The onStop() event");
+        showDialog("The onStop() event");
+        Log.i(TAG, "The onDestroy() event");
     }
 
     /** Called just before the activity is destroyed. */
     @Override
     public void onDestroy() {
         super.onDestroy();
-        showDialog ("The onDestroy() event");
+        Log.i(TAG, "The onDestroy() event");
     }
 
 
