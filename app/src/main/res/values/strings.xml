@@ -21,5 +21,6 @@
     <string name="lbl_external">External</string>
     <string name="lbl_external_removable">External And Removable</string>
     <string name="lbl_info">Info</string>
+    <string name="lbl_rename_move_cache">Move from Internal Cache to other Internal folder</string>
 
 </resources>

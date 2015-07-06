@@ -1,6 +1,7 @@
 package br.trindade.androidbasics.ui;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -18,9 +19,13 @@ import br.trindade.androidbasics.util.AppUtil;
  */
 public class SavingFilesActivity extends BaseActivity implements View.OnClickListener {
 
+    public static final String FILENAME = "androidBasicFile.txt";
+    public static final String FILE_CONTENT = "Hello, this is just a example of saving Files in Android";
+
     private Button mBtnInternalPrivate;
     private Button mBtnExternal;
     private Button mBtnExternalRemovable;
+    private Button mMoveFromCache;
 
     public static final String TAG = SavingFilesActivity.class.getSimpleName();
 
@@ -32,25 +37,30 @@ public class SavingFilesActivity extends BaseActivity implements View.OnClickLis
     }
 
     public void bindButtons() {
-        mBtnInternalPrivate = AppUtil.get(findViewById(R.id.internalPrivate));
+        mBtnInternalPrivate = AppUtil.get(findViewById(R.id.internal_private));
         mBtnInternalPrivate.setOnClickListener(this);
         mBtnExternal = AppUtil.get(findViewById(R.id.external));
         mBtnExternal.setOnClickListener(this);
-        mBtnExternalRemovable = AppUtil.get(findViewById(R.id.externalRemovable));
+        mBtnExternalRemovable = AppUtil.get(findViewById(R.id.external_removable));
         mBtnExternalRemovable.setOnClickListener(this);
+        mMoveFromCache = AppUtil.get(findViewById(R.id.move_cache_other_folder));
+        mMoveFromCache.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.internalPrivate:
+            case R.id.internal_private:
                 internalPrivate();
                 break;
             case R.id.external:
                 external();
                 break;
-            case R.id.externalRemovable:
+            case R.id.external_removable:
                 externalRemovable();
+                break;
+            case R.id.move_cache_other_folder:
+                renameMoveCached();
                 break;
         }
     }
@@ -61,13 +71,11 @@ public class SavingFilesActivity extends BaseActivity implements View.OnClickLis
      * when the app is uninstalled by the user.
      */
     private void internalPrivate() {
-        String fileName = "MyFile.txt";
-        String content = "internalPrivate";
         FileOutputStream outputStream;
         try {
             //The constant Context.MODE_PRIVATE makes the file inaccessible to other apps
-            outputStream = openFileOutput(fileName, Context.MODE_PRIVATE);
-            outputStream.write(content.getBytes());
+            outputStream = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            outputStream.write(FILE_CONTENT.getBytes());
             outputStream.close();
             Toast.makeText(SavingFilesActivity.this, "File saved: Internal And Private", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
@@ -92,11 +100,11 @@ public class SavingFilesActivity extends BaseActivity implements View.OnClickLis
             String folder = Environment.getExternalStorageDirectory().toString();
             File myDir = new File(folder + "/savingExternalTest");
             myDir.mkdirs();
-            String filename = "MyExternalFile.txt";
-            File file = new File(myDir, filename);
+            File file = new File(myDir, FILENAME);
             if (file.exists()) file.delete();
             try {
                 FileOutputStream out = new FileOutputStream(file);
+                out.write(FILE_CONTENT.getBytes());
                 out.flush();
                 out.close();
                 Toast.makeText(SavingFilesActivity.this, "File saved: External", Toast.LENGTH_SHORT).show();
@@ -113,13 +121,15 @@ public class SavingFilesActivity extends BaseActivity implements View.OnClickLis
         if (isExternalStorageRemovableWritable()) {
             String folder = Environment.getExternalStorageDirectory().toString();
             File myDir = new File(folder + "/savingExternalTest");
-            myDir.mkdirs();
-            String filename = "MyExternalFile.txt";
-            File file = new File(myDir, filename);
+            if (!myDir.exists()) {
+                myDir.mkdirs();
+            }
+            File file = new File(myDir, FILENAME);
             if (file.exists()) file.delete();
             try {
                 FileOutputStream out = new FileOutputStream(file);
                 out.flush();
+                out.write(FILE_CONTENT.getBytes());
                 out.close();
                 Toast.makeText(SavingFilesActivity.this, "File saved: External and Removable (SD)", Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
@@ -142,5 +152,32 @@ public class SavingFilesActivity extends BaseActivity implements View.OnClickLis
             return true;
         }
         return false;
+    }
+
+    public void renameMoveCached() {
+        if (isExternalStorageWritable()) {
+            File fileCached = new File(getCacheDir(), FILENAME);
+
+            try {
+                FileOutputStream out = new FileOutputStream(fileCached);
+                out.write(FILE_CONTENT.getBytes());
+                out.flush();
+                out.close();
+                Toast.makeText(SavingFilesActivity.this, "File saved: Cache", Toast.LENGTH_SHORT).show();
+
+                ContextWrapper cw = new ContextWrapper(getBaseContext());
+                File directory = cw.getDir("myFolder", Context.MODE_PRIVATE);
+
+                boolean success = fileCached.renameTo(new File(directory, FILENAME + "_renamed"));
+                if (success) {
+                    Toast.makeText(SavingFilesActivity.this, "File renamed and located in: Cache in "
+                            + directory.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SavingFilesActivity.this, "Nice try, It didn't work ;]", Toast.LENGTH_SHORT).show();
+                }
+            } catch (Exception e) {
+                Log.e(TAG, e.getMessage());
+            }
+        }
     }
 }

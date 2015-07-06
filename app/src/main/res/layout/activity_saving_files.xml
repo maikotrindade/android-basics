@@ -8,7 +8,7 @@
     tools:context="br.trindade.androidbasics.ui.SavingFilesActivity">
 
     <Button
-        android:id="@+id/internalPrivate"
+        android:id="@+id/internal_private"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/lbl_internal_private"
@@ -22,10 +22,17 @@
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/externalRemovable"
+        android:id="@+id/external_removable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/lbl_external_removable"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/move_cache_other_folder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_rename_move_cache"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
