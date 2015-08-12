@@ -12,7 +12,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 
-import br.trindade.androidbasics.util.AppUtil;
+import br.trindade.androidbasics.util.AndroidUtil;
 
 /**
  * @author maiko.trindade
@@ -37,13 +37,13 @@ public class SavingFilesActivity extends BaseActivity implements View.OnClickLis
     }
 
     public void bindButtons() {
-        mBtnInternalPrivate = AppUtil.get(findViewById(R.id.internal_private));
+        mBtnInternalPrivate = AndroidUtil.get(findViewById(R.id.internal_private));
         mBtnInternalPrivate.setOnClickListener(this);
-        mBtnExternal = AppUtil.get(findViewById(R.id.external));
+        mBtnExternal = AndroidUtil.get(findViewById(R.id.external));
         mBtnExternal.setOnClickListener(this);
-        mBtnExternalRemovable = AppUtil.get(findViewById(R.id.external_removable));
+        mBtnExternalRemovable = AndroidUtil.get(findViewById(R.id.external_removable));
         mBtnExternalRemovable.setOnClickListener(this);
-        mMoveFromCache = AppUtil.get(findViewById(R.id.move_cache_other_folder));
+        mMoveFromCache = AndroidUtil.get(findViewById(R.id.move_cache_other_folder));
         mMoveFromCache.setOnClickListener(this);
     }
 

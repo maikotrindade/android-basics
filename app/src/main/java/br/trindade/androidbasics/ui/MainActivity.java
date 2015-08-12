@@ -7,17 +7,14 @@ import android.view.View;
 import android.widget.Button;
 
 import br.trindade.androidbasics.ui.swipeTabs.SwipeTabsMainActivity;
-import br.trindade.androidbasics.util.AppUtil;
+import br.trindade.androidbasics.util.AndroidUtil;
 
 /**
  * @author maiko.trindade
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button mBtnLifecycle;
-    private Button mBtnSwipeTabs;
-    private Button mBtnFloatEdtTxt;
-    private Button mBtnSavingFiles;
+    private Button mBtnLifecycle, mBtnSwipeTabs, mBtnFloatEdtTxt, mBtnSavingFiles, mBtnVolley;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,27 +24,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void bindButtons() {
-        mBtnLifecycle = AppUtil.get(findViewById(R.id.lifecycle));
+        mBtnLifecycle = AndroidUtil.get(findViewById(R.id.btn_lifecycle));
         mBtnLifecycle.setOnClickListener(this);
-        mBtnSwipeTabs = AppUtil.get(findViewById(R.id.swipeTabs));
+        mBtnSwipeTabs = AndroidUtil.get(findViewById(R.id.btn_swipe_tabs));
         mBtnSwipeTabs.setOnClickListener(this);
-        mBtnFloatEdtTxt = AppUtil.get(findViewById(R.id.floatingEditText));
+        mBtnFloatEdtTxt = AndroidUtil.get(findViewById(R.id.btn_floating_edit_text));
         mBtnFloatEdtTxt.setOnClickListener(this);
-        mBtnSavingFiles = AppUtil.get(findViewById(R.id.savingFiles));
+        mBtnSavingFiles = AndroidUtil.get(findViewById(R.id.btn_saving_files));
         mBtnSavingFiles.setOnClickListener(this);
+        mBtnVolley = AndroidUtil.get(findViewById(R.id.btn_volley));
+        mBtnVolley.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.lifecycle:
+            case R.id.btn_lifecycle:
                 startActivity(new Intent(MainActivity.this, LifecycleActivity.class)); break;
-            case R.id.swipeTabs:
+            case R.id.btn_swipe_tabs:
                 startActivity(new Intent(MainActivity.this, SwipeTabsMainActivity.class)); break;
-            case R.id.floatingEditText:
+            case R.id.btn_floating_edit_text:
                 startActivity(new Intent(MainActivity.this, FloatingEditTextActivity.class)); break;
-            case R.id.savingFiles:
+            case R.id.btn_saving_files:
                 startActivity(new Intent(MainActivity.this, SavingFilesActivity.class)); break;
+            case R.id.btn_volley:
+                startActivity(new Intent(MainActivity.this, VolleyActivity.class)); break;
         }
     }
 }

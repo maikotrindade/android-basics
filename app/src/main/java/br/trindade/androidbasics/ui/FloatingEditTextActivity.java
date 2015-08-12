@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import br.trindade.androidbasics.util.AppUtil;
+import br.trindade.androidbasics.util.AndroidUtil;
 
 /**
  * @author maiko.trindade
@@ -25,15 +25,15 @@ public class FloatingEditTextActivity extends BaseActivity implements View.OnTou
     }
 
     public void bindButtons() {
-        editTextLocation = AppUtil.get(findViewById(R.id.editTextLocation));
+        editTextLocation = AndroidUtil.get(findViewById(R.id.editTextLocation));
         editTextLocation.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_action_room, 0);
         editTextLocation.setOnTouchListener(this);
 
-        editTextUpload = AppUtil.get(findViewById(R.id.editTextUpload));
+        editTextUpload = AndroidUtil.get(findViewById(R.id.editTextUpload));
         editTextUpload.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_file_cloud_upload, 0);
         editTextUpload.setOnTouchListener(this);
 
-        editTextDate = AppUtil.get(findViewById(R.id.editTextDate));
+        editTextDate = AndroidUtil.get(findViewById(R.id.editTextDate));
         editTextDate.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_editor_insert_invitation, 0);
         editTextDate.setOnTouchListener(this);
     }

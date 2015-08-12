@@ -1,8 +1,8 @@
 package br.trindade.androidbasics.util;
 
-public final class AppUtil {
+public final class AndroidUtil {
 
-    private AppUtil() {
+    private AndroidUtil() {
         super();
     }
 
