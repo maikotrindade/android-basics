@@ -25,4 +25,10 @@
     <string name="lbl_rename_move_cache">Move from Internal Cache to other Internal folder</string>
     <string name="title_activity_volley">VolleyActivity</string>
 
+    <!-- errors -->
+    <string name="error_timeout">Connection Timed Out</string>
+    <string name="error_auth_failure">Authetication failure</string>
+    <string name="error_network">You got a network error</string>
+    <string name="error_parser">Something bad happended when the data was parsed</string>
+
 </resources>
