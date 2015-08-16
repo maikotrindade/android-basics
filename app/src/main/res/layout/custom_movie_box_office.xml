@@ -24,7 +24,7 @@
         android:alpha="0.87"
         android:gravity="right"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_primary" />
+        android:textAppearance="@android:style/TextAppearance.Medium" />
 
     <TextView
         android:id="@+id/movieReleaseDate"
@@ -34,7 +34,7 @@
         android:layout_below="@id/movieTitle"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textAppearance="@android:style/TextAppearance.Small" />
 
     <RatingBar
         android:id="@+id/movieAudienceScore"

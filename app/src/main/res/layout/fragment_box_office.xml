@@ -5,7 +5,7 @@
     tools:context="materialtest.vivz.slidenerd.fragments.FragmentBoxOffice">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/listMovieHits"
+        android:id="@+id/list_movies"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -18,7 +18,6 @@ import br.trindade.androidbasics.model.Movie;
 public class DBMovies {
 
     public static final int BOX_OFFICE = 0;
-    public static final int UPCOMING = 1;
     private MoviesHelper mHelper;
     private SQLiteDatabase mDatabase;
 
@@ -27,21 +26,72 @@ public class DBMovies {
         mDatabase = mHelper.getWritableDatabase();
     }
 
+    private static class MoviesHelper extends SQLiteOpenHelper {
+        public static final String TABLE_BOX_OFFICE = "movies_box_office";
+        public static final String COLUMN_UID = "_id";
+        public static final String COLUMN_TITLE = "title";
+        public static final String COLUMN_RELEASE_DATE = "release_date";
+        public static final String COLUMN_AUDIENCE_SCORE = "audience_score";
+        public static final String COLUMN_SYNOPSIS = "synopsis";
+        public static final String COLUMN_URL_THUMBNAIL = "url_thumbnail";
+        public static final String COLUMN_URL_SELF = "url_self";
+        public static final String COLUMN_URL_CAST = "url_cast";
+        public static final String COLUMN_URL_REVIEWS = "url_reviews";
+        public static final String COLUMN_URL_SIMILAR = "url_similar";
+
+        private static final String CREATE_TABLE_BOX_OFFICE = "CREATE TABLE " + TABLE_BOX_OFFICE + " (" +
+                COLUMN_UID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COLUMN_TITLE + " TEXT," +
+                COLUMN_RELEASE_DATE + " INTEGER," +
+                COLUMN_AUDIENCE_SCORE + " INTEGER," +
+                COLUMN_SYNOPSIS + " TEXT," +
+                COLUMN_URL_THUMBNAIL + " TEXT," +
+                COLUMN_URL_SELF + " TEXT," +
+                COLUMN_URL_CAST + " TEXT," +
+                COLUMN_URL_REVIEWS + " TEXT," +
+                COLUMN_URL_SIMILAR + " TEXT" +
+                ");";
+
+        private static final String DB_NAME = "movies_db";
+        private static final int DB_VERSION = 1;
+        private Context mContext;
+
+        public MoviesHelper(Context context) {
+            super(context, DB_NAME, null, DB_VERSION);
+            mContext = context;
+        }
+
+        @Override
+        public void onCreate(SQLiteDatabase db) {
+            try {
+                db.execSQL(CREATE_TABLE_BOX_OFFICE);
+            } catch (SQLiteException exception) {
+            }
+        }
+
+        @Override
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            try {
+                db.execSQL(" DROP TABLE " + TABLE_BOX_OFFICE + " IF EXISTS;");
+                onCreate(db);
+            } catch (SQLiteException exception) {
+            }
+        }
+    }
+
     public void insertMovies(int table, ArrayList<Movie> listMovies, boolean clearPrevious) {
         if (clearPrevious) {
             deleteMovies(table);
         }
 
-
         //create a sql prepared statement
-        String sql = "INSERT INTO " + (table == BOX_OFFICE ? MoviesHelper.TABLE_BOX_OFFICE : MoviesHelper.TABLE_UPCOMING) + " VALUES (?,?,?,?,?,?,?,?,?,?);";
-        //compile the statement and start a transaction
+        String sql = "INSERT INTO " + MoviesHelper.TABLE_BOX_OFFICE + " VALUES (?,?,?,?,?,?,?,?,?,?);";
         SQLiteStatement statement = mDatabase.compileStatement(sql);
         mDatabase.beginTransaction();
-        for (int i = 0; i < listMovies.size(); i++) {
-            Movie currentMovie = listMovies.get(i);
+
+        for (int index = 0; index < listMovies.size(); index++) {
+            Movie currentMovie = listMovies.get(index);
             statement.clearBindings();
-            //for a given column index, simply bind the data to be put inside that index
             statement.bindString(2, currentMovie.getTitle());
             statement.bindLong(3, currentMovie.getReleaseDateTheater() == null ? -1 : currentMovie.getReleaseDateTheater().getTime());
             statement.bindLong(4, currentMovie.getAudienceScore());
@@ -62,7 +112,6 @@ public class DBMovies {
     public ArrayList<Movie> readMovies(int table) {
         ArrayList<Movie> listMovies = new ArrayList<>();
 
-        //get a list of columns to be retrieved, we need all of them
         String[] columns = {MoviesHelper.COLUMN_UID,
                 MoviesHelper.COLUMN_TITLE,
                 MoviesHelper.COLUMN_RELEASE_DATE,
@@ -74,7 +123,7 @@ public class DBMovies {
                 MoviesHelper.COLUMN_URL_REVIEWS,
                 MoviesHelper.COLUMN_URL_SIMILAR
         };
-        Cursor cursor = mDatabase.query((table == BOX_OFFICE ? MoviesHelper.TABLE_BOX_OFFICE : MoviesHelper.TABLE_UPCOMING), columns, null, null, null, null, null);
+        Cursor cursor = mDatabase.query(MoviesHelper.TABLE_BOX_OFFICE, columns, null, null, null, null, null);
         if (cursor != null && cursor.moveToFirst()) {
             do {
 
@@ -101,73 +150,7 @@ public class DBMovies {
     }
 
     public void deleteMovies(int table) {
-        mDatabase.delete((table == BOX_OFFICE ? MoviesHelper.TABLE_BOX_OFFICE : MoviesHelper.TABLE_UPCOMING), null, null);
-    }
-
-    private static class MoviesHelper extends SQLiteOpenHelper {
-        public static final String TABLE_UPCOMING = " movies_upcoming";
-        public static final String TABLE_BOX_OFFICE = "movies_box_office";
-        public static final String COLUMN_UID = "_id";
-        public static final String COLUMN_TITLE = "title";
-        public static final String COLUMN_RELEASE_DATE = "release_date";
-        public static final String COLUMN_AUDIENCE_SCORE = "audience_score";
-        public static final String COLUMN_SYNOPSIS = "synopsis";
-        public static final String COLUMN_URL_THUMBNAIL = "url_thumbnail";
-        public static final String COLUMN_URL_SELF = "url_self";
-        public static final String COLUMN_URL_CAST = "url_cast";
-        public static final String COLUMN_URL_REVIEWS = "url_reviews";
-        public static final String COLUMN_URL_SIMILAR = "url_similar";
-        private static final String CREATE_TABLE_BOX_OFFICE = "CREATE TABLE " + TABLE_BOX_OFFICE + " (" +
-                COLUMN_UID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_TITLE + " TEXT," +
-                COLUMN_RELEASE_DATE + " INTEGER," +
-                COLUMN_AUDIENCE_SCORE + " INTEGER," +
-                COLUMN_SYNOPSIS + " TEXT," +
-                COLUMN_URL_THUMBNAIL + " TEXT," +
-                COLUMN_URL_SELF + " TEXT," +
-                COLUMN_URL_CAST + " TEXT," +
-                COLUMN_URL_REVIEWS + " TEXT," +
-                COLUMN_URL_SIMILAR + " TEXT" +
-                ");";
-        private static final String CREATE_TABLE_UPCOMING = "CREATE TABLE " + TABLE_UPCOMING + " (" +
-                COLUMN_UID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_TITLE + " TEXT," +
-                COLUMN_RELEASE_DATE + " INTEGER," +
-                COLUMN_AUDIENCE_SCORE + " INTEGER," +
-                COLUMN_SYNOPSIS + " TEXT," +
-                COLUMN_URL_THUMBNAIL + " TEXT," +
-                COLUMN_URL_SELF + " TEXT," +
-                COLUMN_URL_CAST + " TEXT," +
-                COLUMN_URL_REVIEWS + " TEXT," +
-                COLUMN_URL_SIMILAR + " TEXT" +
-                ");";
-        private static final String DB_NAME = "movies_db";
-        private static final int DB_VERSION = 1;
-        private Context mContext;
-
-        public MoviesHelper(Context context) {
-            super(context, DB_NAME, null, DB_VERSION);
-            mContext = context;
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            try {
-                db.execSQL(CREATE_TABLE_BOX_OFFICE);
-                db.execSQL(CREATE_TABLE_UPCOMING);
-            } catch (SQLiteException exception) {
-            }
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            try {
-                db.execSQL(" DROP TABLE " + TABLE_BOX_OFFICE + " IF EXISTS;");
-                db.execSQL(" DROP TABLE " + TABLE_UPCOMING + " IF EXISTS;");
-                onCreate(db);
-            } catch (SQLiteException exception) {
-            }
-        }
+        mDatabase.delete(MoviesHelper.TABLE_BOX_OFFICE, null, null);
     }
 }
 

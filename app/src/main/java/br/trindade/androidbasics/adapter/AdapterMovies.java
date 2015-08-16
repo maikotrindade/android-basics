@@ -1,6 +1,10 @@
 package br.trindade.androidbasics.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +25,7 @@ import java.util.List;
 import br.trindade.androidbasics.model.Movie;
 import br.trindade.androidbasics.network.VolleySingleton;
 import br.trindade.androidbasics.ui.R;
+import br.trindade.androidbasics.util.BitmapUtils;
 
 /**
  * @author maiko.trindade
@@ -31,7 +36,7 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.ViewHolder
     private LayoutInflater mInflater;
     private VolleySingleton mVolleySingleton;
     private ImageLoader mImageLoader;
-    private DateFormat mFormatter = new SimpleDateFormat("dd-MM-yyyy");
+    private DateFormat mFormatter = new SimpleDateFormat("dd/MM/yyyy");
 
     public AdapterMovies(Context context) {
         mInflater = LayoutInflater.from(context);
@@ -53,12 +58,12 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolderBoxOffice holder, int position) {
-        Movie currentMovie = mListMovies.get(position);
+        Movie movie = mListMovies.get(position);
         //one or more fields of the Movie object may be null since they are fetched from the web
-        holder.movieTitle.setText(currentMovie.getTitle());
+        holder.movieTitle.setText(movie.getTitle());
 
         //retrieved date may be null
-        Date movieReleaseDate = currentMovie.getReleaseDateTheater();
+        Date movieReleaseDate = movie.getReleaseDateTheater();
         if (movieReleaseDate != null) {
             String formattedDate = mFormatter.format(movieReleaseDate);
             holder.movieReleaseDate.setText(formattedDate);
@@ -66,17 +71,19 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.ViewHolder
             holder.movieReleaseDate.setText("NA");
         }
 
-        int audienceScore = currentMovie.getAudienceScore();
+        int audienceScore = movie.getAudienceScore();
         if (audienceScore == -1) {
             holder.movieAudienceScore.setRating(0.0F);
             holder.movieAudienceScore.setAlpha(0.5F);
         } else {
             holder.movieAudienceScore.setRating(audienceScore / 20.0F);
             holder.movieAudienceScore.setAlpha(1.0F);
+            LayerDrawable ratings = (LayerDrawable) holder.movieAudienceScore.getProgressDrawable();
+            ratings.getDrawable(2).setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_ATOP);
         }
 
-        String urlThumnail = currentMovie.getUrlThumbnail();
-        loadImages(urlThumnail, holder);
+        String urlThumbnail = movie.getUrlThumbnail();
+        loadImages(urlThumbnail, holder);
 
     }
 
@@ -86,7 +93,10 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.ViewHolder
             mImageLoader.get(urlThumbnail, new ImageLoader.ImageListener() {
                 @Override
                 public void onResponse(ImageLoader.ImageContainer response, boolean isImmediate) {
-                    holder.movieThumbnail.setImageBitmap(response.getBitmap());
+                    Bitmap bitmap = response.getBitmap();
+                    if (bitmap != null) {
+                        holder.movieThumbnail.setImageBitmap(BitmapUtils.getRounded(bitmap, 15));
+                    }
                 }
 
                 @Override

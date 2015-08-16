@@ -22,11 +22,4 @@ public class MovieUtils {
         BasicsApplication.getWritableDatabase().insertMovies(DBMovies.BOX_OFFICE, listMovies, true);
         return listMovies;
     }
-
-    public static ArrayList<Movie> loadUpcomingMovies(RequestQueue requestQueue) {
-        JSONObject response = Requestor.requestMoviesJSON(requestQueue, Endpoints.getRequestUrlUpcomingMovies(30));
-        ArrayList<Movie> listMovies = JsonParser.parseMoviesJSON(response);
-        BasicsApplication.getWritableDatabase().insertMovies(DBMovies.UPCOMING, listMovies, true);
-        return listMovies;
-    }
 }
