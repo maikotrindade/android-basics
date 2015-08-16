@@ -2,7 +2,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="@style/Theme.AppCompat.Light">
+    <style name="AndroidBasicsTheme" parent="@style/Theme.AppCompat.Light">
+    </style>
+
+    <style name="TextAppearanceExtraSmall" parent="@android:style/TextAppearance">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">#333</item>
     </style>
 
 </resources>
