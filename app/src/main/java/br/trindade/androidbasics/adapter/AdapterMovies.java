@@ -31,8 +31,7 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.ViewHolder
     private LayoutInflater mInflater;
     private VolleySingleton mVolleySingleton;
     private ImageLoader mImageLoader;
-    //formatter for parsing the dates in the specified format below
-    private DateFormat mFormatter = new SimpleDateFormat("yyyy-MM-dd");
+    private DateFormat mFormatter = new SimpleDateFormat("dd-MM-yyyy");
 
     public AdapterMovies(Context context) {
         mInflater = LayoutInflater.from(context);
@@ -42,7 +41,6 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.ViewHolder
 
     public void setMovies(ArrayList<Movie> listMovies) {
         this.mListMovies = listMovies;
-        //update the adapter to reflect the new set of movies
         notifyDataSetChanged();
     }
 

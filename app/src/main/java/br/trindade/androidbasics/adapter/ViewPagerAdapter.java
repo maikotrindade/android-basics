@@ -29,7 +29,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        //TODO
-        return "";
+        return "BoxOffice";
     }
 }

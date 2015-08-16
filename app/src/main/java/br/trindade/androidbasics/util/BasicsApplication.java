@@ -9,7 +9,7 @@ import br.trindade.androidbasics.database.DBMovies;
  */
 public class BasicsApplication extends android.app.Application {
 
-    public static final String API_KEY_ROTTEN_TOMATOES = "54wzfswsa4qmjg8hjwa64d4c";
+    public static final String API_KEY_ROTTEN_TOMATOES = "nc6hgu9erb379bew5qjvf2ts";
     private static BasicsApplication sInstance;
     private static DBMovies mDatabase;
 
