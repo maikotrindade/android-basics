@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import java.util.ArrayList;
 
 import br.trindade.androidbasics.adapter.AdapterMovies;
+import br.trindade.androidbasics.callback.NetworkErrorListener;
 import br.trindade.androidbasics.callback.BoxOfficeMoviesLoadedListener;
 import br.trindade.androidbasics.database.DBMovies;
 import br.trindade.androidbasics.model.Movie;
@@ -32,7 +33,7 @@ import br.trindade.androidbasics.util.BasicsApplication;
  * Use the {@link BoxOfficeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BoxOfficeFragment extends Fragment implements BoxOfficeMoviesLoadedListener {
+public class BoxOfficeFragment extends Fragment implements BoxOfficeMoviesLoadedListener, NetworkErrorListener {
 
     private static final String STATE_MOVIES = "state_movies";
     private ArrayList<Movie> mListMovies = new ArrayList<>();
@@ -72,7 +73,7 @@ public class BoxOfficeFragment extends Fragment implements BoxOfficeMoviesLoaded
         } else {
             mListMovies = BasicsApplication.getWritableDatabase().readMovies(DBMovies.BOX_OFFICE);
             if (mListMovies.isEmpty()) {
-                new TaskLoadMoviesBoxOffice(this).execute();
+                new TaskLoadMoviesBoxOffice(this, this).execute();
             }
         }
         mAdapter.setMovies(mListMovies);
@@ -107,6 +108,22 @@ public class BoxOfficeFragment extends Fragment implements BoxOfficeMoviesLoaded
     @Override
     public void onBoxOfficeMoviesLoaded(ArrayList<Movie> listMovies) {
         mAdapter.setMovies(listMovies);
+    }
+
+    @Override
+    public void onTaskComplete(Object error) {
+        mTextError.setVisibility(View.VISIBLE);
+        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+            mTextError.setText(R.string.error_timeout);
+        } else if (error instanceof AuthFailureError) {
+            mTextError.setText(R.string.error_auth_failure);
+        } else if (error instanceof ServerError) {
+            mTextError.setText(R.string.error_auth_failure);
+        } else if (error instanceof NetworkError) {
+            mTextError.setText(R.string.error_network);
+        } else if (error instanceof ParseError) {
+            mTextError.setText(R.string.error_parser);
+        }
     }
 }
 

@@ -1,15 +1,24 @@
 <resources>
     <string name="app_name">Android Basics</string>
+
+    <!-- Activities' titles-->
     <string name="title_activity_lifecycle">LifecycleActivity</string>
     <string name="lbl_activity_lifecycle">Activity Lifecycle</string>
+    <string name="title_activity_swipe_tabs">Swipe Tabs</string>
+    <string name="title_activity_floating_edit_text">FloatingEditTextActivity</string>
+    <string name="title_activity_volley">List of movies with Volley</string>
+
+    <!-- errors -->
+    <string name="error_timeout">Connection Timed Out</string>
+    <string name="error_auth_failure">Authetication failure</string>
+    <string name="error_network">You got a network error</string>
+    <string name="error_parser">Something bad happended when the data was parsed</string>
+
+
     <string name="first_tab">First Tab</string>
     <string name="second_tab">Second Tab</string>
     <string name="third_tab">Third Tab</string>
     <string name="lbl_swipe_tabs">Swipe Tabs</string>
-    <string name="title_activity_swipe_tabs">Swipe Tabs</string>
-    <string name="title_activity_floating_edit_text">FloatingEditTextActivity</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="lbl_floating_edit_text">Floating EditText</string>
     <string name="lbl_location">Location EditText</string>
@@ -23,12 +32,5 @@
     <string name="lbl_external_removable">External And Removable</string>
     <string name="lbl_info">Info</string>
     <string name="lbl_rename_move_cache">Move from Internal Cache to other Internal folder</string>
-    <string name="title_activity_volley">VolleyActivity</string>
-
-    <!-- errors -->
-    <string name="error_timeout">Connection Timed Out</string>
-    <string name="error_auth_failure">Authetication failure</string>
-    <string name="error_network">You got a network error</string>
-    <string name="error_parser">Something bad happended when the data was parsed</string>
 
 </resources>

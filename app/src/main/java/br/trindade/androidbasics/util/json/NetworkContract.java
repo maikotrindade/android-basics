@@ -29,5 +29,6 @@ public interface NetworkContract {
         public static final String KEY_CAST = "cast";
         public static final String KEY_REVIEWS = "reviews";
         public static final String KEY_SIMILAR = "similar";
+        public static final String KEY_DURATION = "runtime";
     }
 }

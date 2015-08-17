@@ -63,6 +63,8 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.ViewHolder
         holder.movieTitle.setText(movie.getTitle());
 
         //retrieved date may be null
+
+
         Date movieReleaseDate = movie.getReleaseDateTheater();
         if (movieReleaseDate != null) {
             String formattedDate = mFormatter.format(movieReleaseDate);
@@ -116,15 +118,17 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.ViewHolder
 
         ImageView movieThumbnail;
         TextView movieTitle;
+        TextView movieDuration;
         TextView movieReleaseDate;
         RatingBar movieAudienceScore;
 
         public ViewHolderBoxOffice(View itemView) {
             super(itemView);
-            movieThumbnail = (ImageView) itemView.findViewById(R.id.movieThumbnail);
-            movieTitle = (TextView) itemView.findViewById(R.id.movieTitle);
-            movieReleaseDate = (TextView) itemView.findViewById(R.id.movieReleaseDate);
-            movieAudienceScore = (RatingBar) itemView.findViewById(R.id.movieAudienceScore);
+            movieThumbnail = (ImageView) itemView.findViewById(R.id.img_thumbnail);
+            movieTitle = (TextView) itemView.findViewById(R.id.txt_title);
+            movieDuration = (TextView) itemView.findViewById(R.id.txt_duration);
+            movieReleaseDate = (TextView) itemView.findViewById(R.id.txt_release_date);
+            movieAudienceScore = (RatingBar) itemView.findViewById(R.id.movie_ratings);
         }
     }
 }

@@ -6,7 +6,7 @@
     </style>
 
     <style name="TextAppearanceExtraSmall" parent="@android:style/TextAppearance">
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">11sp</item>
         <item name="android:textColor">#333</item>
     </style>
 

@@ -23,6 +23,7 @@ public class JsonParser {
             try {
                 JSONArray arrayMovies = response.getJSONArray(NetworkContract.BoxOfficeKeys.KEY_MOVIES);
                 for (int i = 0; i < arrayMovies.length(); i++) {
+
                     long id = -1;
                     String title = "NA";
                     String releaseDate = "NA";
@@ -33,6 +34,8 @@ public class JsonParser {
                     String urlCast = "NA";
                     String urlReviews = "NA";
                     String urlSimilar = "NA";
+                    int duration = 0;
+
                     JSONObject currentMovie = arrayMovies.getJSONObject(i);
                     //get the id of the current movie
                     if (JsonUtil.contains(currentMovie, NetworkContract.BoxOfficeKeys.KEY_ID)) {
@@ -91,6 +94,12 @@ public class JsonParser {
                             urlSimilar = objectLinks.getString(NetworkContract.BoxOfficeKeys.KEY_SIMILAR);
                         }
                     }
+
+                    //get the id of the current movie
+                    if (JsonUtil.contains(currentMovie, NetworkContract.BoxOfficeKeys.KEY_DURATION)) {
+                        duration = currentMovie.getInt(NetworkContract.BoxOfficeKeys.KEY_DURATION);
+                    }
+
                     Movie movie = new Movie();
                     movie.setId(id);
                     movie.setTitle(title);

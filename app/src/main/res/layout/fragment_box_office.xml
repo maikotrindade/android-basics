@@ -16,6 +16,7 @@
         android:layout_gravity="center"
         android:padding="@dimen/size_word"
         android:textColor="#FF4444"
+        android:textAppearance="@android:style/TextAppearance.Medium"
         android:visibility="gone" />
 
 </FrameLayout>
