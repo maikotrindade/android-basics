@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/lbl_lyfecycle_info"
+        android:text="@string/lbl_lifecycle_info"
         android:textAppearance="@android:style/TextAppearance.Large"
         />
 

@@ -1,6 +1,7 @@
 package br.trindade.androidbasics.ui;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -36,6 +37,15 @@ public class FloatingEditTextActivity extends BaseActivity implements View.OnTou
         editTextDate = AndroidUtil.get(findViewById(R.id.editTextDate));
         editTextDate.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_editor_insert_invitation, 0);
         editTextDate.setOnTouchListener(this);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_info) {
+            AndroidUtil.getSimpleDialog(FloatingEditTextActivity.this, getString(R.string.msg_floatingtext_info))
+                    .show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

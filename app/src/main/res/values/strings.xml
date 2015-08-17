@@ -2,11 +2,11 @@
     <string name="app_name">Android Basics</string>
 
     <!-- Activities' titles-->
-    <string name="title_activity_lifecycle">LifecycleActivity</string>
-    <string name="lbl_activity_lifecycle">Activity Lifecycle</string>
+    <string name="title_activity_lifecycle">Lifecycle Example</string>
     <string name="title_activity_swipe_tabs">Swipe Tabs</string>
-    <string name="title_activity_floating_edit_text">FloatingEditTextActivity</string>
+    <string name="title_activity_floating_edit_text">FloatingEditText Example</string>
     <string name="title_activity_volley">List of movies with Volley</string>
+    <string name="title_activity_saving_files">SavingFiles Example</string>
 
     <!-- errors -->
     <string name="error_timeout">Connection Timed Out</string>
@@ -18,13 +18,13 @@
     <string name="first_tab">First Tab</string>
     <string name="second_tab">Second Tab</string>
     <string name="third_tab">Third Tab</string>
+    <string name="lbl_activity_lifecycle">Activity Lifecycle</string>
     <string name="lbl_swipe_tabs">Swipe Tabs</string>
     <string name="action_settings">Settings</string>
     <string name="lbl_floating_edit_text">Floating EditText</string>
     <string name="lbl_location">Location EditText</string>
     <string name="lbl_upload">Upload EditText</string>
     <string name="lbl_date">Date EditText</string>
-    <string name="title_activity_saving_files">SavingFilesActivity</string>
     <string name="lbl_internal_private">Saving Internal And Private</string>
     <string name="lbl_saving_files">Saving Files</string>
     <string name="lbl_volley_library">Volley Library</string>
@@ -32,6 +32,8 @@
     <string name="lbl_external_removable">External And Removable</string>
     <string name="lbl_info">Info</string>
     <string name="lbl_rename_move_cache">Move from Internal Cache to other Internal folder</string>
-    <string name="lbl_lyfecycle_info">All lifecycle events are being displayed in the Log. Take a look at your Logcat and see the logs through the TAG \'LifecycleActivity\'.</string>
+    <string name="lbl_lifecycle_info">All lifecycle events are being displayed in the Log. Take a look at your Logcat and see the logs through the TAG \'LifecycleActivity\'.</string>
+    <string name="msg_lifecycle_info">This is a simple example of Activity Lifecycle</string>
+    <string name="msg_floatingtext_info">This is an example f how to implement Floating Edit Texts on Android. Note this example do not use Support Design Library, that is strongly recommended to use it instead the presented approach.</string>
 
 </resources>
