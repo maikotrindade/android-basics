@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_lifecycle:
                 startActivity(new Intent(MainActivity.this, LifecycleActivity.class)); break;
             case R.id.btn_swipe_tabs:
-                startActivity(new Intent(MainActivity.this, BaseActivity.SwipeTabsMainActivity.class)); break;
+                startActivity(new Intent(MainActivity.this, SwipeTabsActivity.class)); break;
             case R.id.btn_floating_edit_text:
                 startActivity(new Intent(MainActivity.this, FloatingEditTextActivity.class)); break;
             case R.id.btn_saving_files:

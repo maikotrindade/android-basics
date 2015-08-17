@@ -30,7 +30,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".BaseActivity$SwipeTabsMainActivity"
+            android:name=".SwipeTabsActivity"
             android:label="@string/title_activity_swipe_tabs"
             android:parentActivityName=".MainActivity" >
             <meta-data
