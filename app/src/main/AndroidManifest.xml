@@ -30,7 +30,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".swipeTabs.SwipeTabsMainActivity"
+            android:name=".BaseActivity$SwipeTabsMainActivity"
             android:label="@string/title_activity_swipe_tabs"
             android:parentActivityName=".MainActivity" >
             <meta-data
@@ -55,7 +55,11 @@
         </activity>
         <activity
             android:name=".VolleyActivity"
-            android:label="@string/title_activity_volley" >
+            android:label="@string/title_activity_volley"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
     </application>
 

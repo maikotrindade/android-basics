@@ -1,4 +1,4 @@
-package br.trindade.androidbasics.ui.swipeTabs;
+package br.trindade.androidbasics.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 
 import br.trindade.androidbasics.ui.R;
 
-
-public class FirstTab extends Fragment {
+public class SecondTabFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.first_tab, container,false);
+		return inflater.inflate(R.layout.second_tab, container, false);
 	}
+	
+	
+
 }

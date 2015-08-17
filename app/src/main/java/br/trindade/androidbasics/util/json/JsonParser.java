@@ -1,5 +1,7 @@
 package br.trindade.androidbasics.util.json;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,17 +13,21 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import br.trindade.androidbasics.model.Movie;
+import static br.trindade.androidbasics.util.json.NetworkContract.BoxOfficeKeys.*;
+
 /**
  * @author maiko.trindade
  */
 public class JsonParser {
+
+    private static final String TAG = JsonParser.class.getSimpleName();
 
     public static ArrayList<Movie> parseMoviesJSON(JSONObject response) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         ArrayList<Movie> listMovies = new ArrayList<>();
         if (response != null && response.length() > 0) {
             try {
-                JSONArray arrayMovies = response.getJSONArray(NetworkContract.BoxOfficeKeys.KEY_MOVIES);
+                JSONArray arrayMovies = response.getJSONArray(KEY_MOVIES);
                 for (int i = 0; i < arrayMovies.length(); i++) {
 
                     long id = -1;
@@ -38,66 +44,65 @@ public class JsonParser {
 
                     JSONObject currentMovie = arrayMovies.getJSONObject(i);
                     //get the id of the current movie
-                    if (JsonUtil.contains(currentMovie, NetworkContract.BoxOfficeKeys.KEY_ID)) {
-                        id = currentMovie.getLong(NetworkContract.BoxOfficeKeys.KEY_ID);
+                    if (JsonUtil.contains(currentMovie, KEY_ID)) {
+                        id = currentMovie.getLong(KEY_ID);
                     }
                     //get the title of the current movie
-                    if (JsonUtil.contains(currentMovie, NetworkContract.BoxOfficeKeys.KEY_TITLE)) {
-                        title = currentMovie.getString(NetworkContract.BoxOfficeKeys.KEY_TITLE);
+                    if (JsonUtil.contains(currentMovie, KEY_TITLE)) {
+                        title = currentMovie.getString(KEY_TITLE);
                     }
 
                     //get the date in theaters for the current movie
-                    if (JsonUtil.contains(currentMovie, NetworkContract.BoxOfficeKeys.KEY_RELEASE_DATES)) {
-                        JSONObject objectReleaseDates = currentMovie.getJSONObject(NetworkContract.BoxOfficeKeys.KEY_RELEASE_DATES);
+                    if (JsonUtil.contains(currentMovie, KEY_RELEASE_DATES)) {
+                        JSONObject objectReleaseDates = currentMovie.getJSONObject(KEY_RELEASE_DATES);
 
-                        if (JsonUtil.contains(objectReleaseDates, NetworkContract.BoxOfficeKeys.KEY_THEATER)) {
-                            releaseDate = objectReleaseDates.getString(NetworkContract.BoxOfficeKeys.KEY_THEATER);
+                        if (JsonUtil.contains(objectReleaseDates, KEY_THEATER)) {
+                            releaseDate = objectReleaseDates.getString(KEY_THEATER);
                         }
                     }
 
                     //get the audience score for the current movie
-
-                    if (JsonUtil.contains(currentMovie, NetworkContract.BoxOfficeKeys.KEY_RATINGS)) {
-                        JSONObject objectRatings = currentMovie.getJSONObject(NetworkContract.BoxOfficeKeys.KEY_RATINGS);
-                        if (JsonUtil.contains(objectRatings, NetworkContract.BoxOfficeKeys.KEY_AUDIENCE_SCORE)) {
-                            audienceScore = objectRatings.getInt(NetworkContract.BoxOfficeKeys.KEY_AUDIENCE_SCORE);
+                    if (JsonUtil.contains(currentMovie, KEY_RATINGS)) {
+                        JSONObject objectRatings = currentMovie.getJSONObject(KEY_RATINGS);
+                        if (JsonUtil.contains(objectRatings, KEY_AUDIENCE_SCORE)) {
+                            audienceScore = objectRatings.getInt(KEY_AUDIENCE_SCORE);
                         }
                     }
 
                     // get the synopsis of the current movie
-                    if (JsonUtil.contains(currentMovie, NetworkContract.BoxOfficeKeys.KEY_SYNOPSIS)) {
-                        synopsis = currentMovie.getString(NetworkContract.BoxOfficeKeys.KEY_SYNOPSIS);
+                    if (JsonUtil.contains(currentMovie, KEY_SYNOPSIS)) {
+                        synopsis = currentMovie.getString(KEY_SYNOPSIS);
                     }
 
                     //get the url for the thumbnail to be displayed inside the current movie result
-                    if (JsonUtil.contains(currentMovie, NetworkContract.BoxOfficeKeys.KEY_POSTERS)) {
-                        JSONObject objectPosters = currentMovie.getJSONObject(NetworkContract.BoxOfficeKeys.KEY_POSTERS);
+                    if (JsonUtil.contains(currentMovie, KEY_POSTERS)) {
+                        JSONObject objectPosters = currentMovie.getJSONObject(KEY_POSTERS);
 
-                        if (JsonUtil.contains(objectPosters, NetworkContract.BoxOfficeKeys.KEY_THUMBNAIL)) {
-                            urlThumbnail = objectPosters.getString(NetworkContract.BoxOfficeKeys.KEY_THUMBNAIL);
+                        if (JsonUtil.contains(objectPosters, KEY_THUMBNAIL)) {
+                            urlThumbnail = objectPosters.getString(KEY_THUMBNAIL);
                         }
                     }
 
                     //get the url of the related links
-                    if (JsonUtil.contains(currentMovie, NetworkContract.BoxOfficeKeys.KEY_LINKS)) {
-                        JSONObject objectLinks = currentMovie.getJSONObject(NetworkContract.BoxOfficeKeys.KEY_LINKS);
-                        if (JsonUtil.contains(objectLinks, NetworkContract.BoxOfficeKeys.KEY_SELF)) {
-                            urlSelf = objectLinks.getString(NetworkContract.BoxOfficeKeys.KEY_SELF);
+                    if (JsonUtil.contains(currentMovie, KEY_LINKS)) {
+                        JSONObject objectLinks = currentMovie.getJSONObject(KEY_LINKS);
+                        if (JsonUtil.contains(objectLinks, KEY_SELF)) {
+                            urlSelf = objectLinks.getString(KEY_SELF);
                         }
-                        if (JsonUtil.contains(objectLinks, NetworkContract.BoxOfficeKeys.KEY_CAST)) {
-                            urlCast = objectLinks.getString(NetworkContract.BoxOfficeKeys.KEY_CAST);
+                        if (JsonUtil.contains(objectLinks, KEY_CAST)) {
+                            urlCast = objectLinks.getString(KEY_CAST);
                         }
-                        if (JsonUtil.contains(objectLinks, NetworkContract.BoxOfficeKeys.KEY_REVIEWS)) {
-                            urlReviews = objectLinks.getString(NetworkContract.BoxOfficeKeys.KEY_REVIEWS);
+                        if (JsonUtil.contains(objectLinks, KEY_REVIEWS)) {
+                            urlReviews = objectLinks.getString(KEY_REVIEWS);
                         }
-                        if (JsonUtil.contains(objectLinks, NetworkContract.BoxOfficeKeys.KEY_SIMILAR)) {
-                            urlSimilar = objectLinks.getString(NetworkContract.BoxOfficeKeys.KEY_SIMILAR);
+                        if (JsonUtil.contains(objectLinks, KEY_SIMILAR)) {
+                            urlSimilar = objectLinks.getString(KEY_SIMILAR);
                         }
                     }
 
                     //get the id of the current movie
-                    if (JsonUtil.contains(currentMovie, NetworkContract.BoxOfficeKeys.KEY_DURATION)) {
-                        duration = currentMovie.getInt(NetworkContract.BoxOfficeKeys.KEY_DURATION);
+                    if (JsonUtil.contains(currentMovie, KEY_DURATION)) {
+                        duration = currentMovie.getInt(KEY_DURATION);
                     }
 
                     Movie movie = new Movie();
@@ -118,16 +123,16 @@ public class JsonParser {
                     movie.setUrlThumbnail(urlThumbnail);
                     movie.setUrlReviews(urlReviews);
                     movie.setUrlSimilar(urlSimilar);
+                    movie.setRuntime(duration);
                     if (id != -1 && !title.equals("NA")) {
                         listMovies.add(movie);
                     }
                 }
 
             } catch (JSONException e) {
-
+                Log.e(TAG, e.getMessage());
             }
         }
         return listMovies;
     }
-
 }

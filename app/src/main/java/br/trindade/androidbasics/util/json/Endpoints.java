@@ -1,6 +1,7 @@
 package br.trindade.androidbasics.util.json;
 
 import br.trindade.androidbasics.util.BasicsApplication;
+import static br.trindade.androidbasics.util.json.NetworkContract.UrlEndpoints.*;
 
 /**
  * @author maiko.trindade
@@ -8,19 +9,10 @@ import br.trindade.androidbasics.util.BasicsApplication;
 public class Endpoints {
     public static String getRequestUrlBoxOfficeMovies(int limit) {
 
-        return NetworkContract.UrlEndpoints.URL_BOX_OFFICE
-                + NetworkContract.UrlEndpoints.URL_CHAR_QUESTION
-                + NetworkContract.UrlEndpoints.URL_PARAM_API_KEY + BasicsApplication.API_KEY_ROTTEN_TOMATOES
-                + NetworkContract.UrlEndpoints.URL_CHAR_AMEPERSAND
-                + NetworkContract.UrlEndpoints.URL_PARAM_LIMIT + limit;
-    }
-
-    public static String getRequestUrlUpcomingMovies(int limit) {
-
-        return NetworkContract.UrlEndpoints.URL_UPCOMING
-                + NetworkContract.UrlEndpoints.URL_CHAR_QUESTION
-                + NetworkContract.UrlEndpoints.URL_PARAM_API_KEY + BasicsApplication.API_KEY_ROTTEN_TOMATOES
-                + NetworkContract.UrlEndpoints.URL_CHAR_AMEPERSAND
-                + NetworkContract.UrlEndpoints.URL_PARAM_LIMIT + limit;
+        return URL_BOX_OFFICE
+                + URL_CHAR_QUESTION
+                + URL_PARAM_API_KEY + BasicsApplication.API_KEY_ROTTEN_TOMATOES
+                + URL_CHAR_AMEPERSAND
+                + URL_PARAM_LIMIT + limit;
     }
 }
