@@ -8,6 +8,7 @@
     <string name="title_activity_volley">List of movies with Volley</string>
     <string name="title_activity_saving_files">SavingFiles Example</string>
     <string name="title_activity_collapse_toolbar">CollapsingToolbar Example</string>
+    <string name="title_activity_parse_xml">Parsing XML Example</string>
 
     <!-- errors -->
     <string name="error_timeout">Connection Timed Out</string>
@@ -15,7 +16,7 @@
     <string name="error_network">You got a network error</string>
     <string name="error_parser">Something bad happended when the data was parsed</string>
 
-
+    <!-- General -->
     <string name="first_tab">First Tab</string>
     <string name="second_tab">Second Tab</string>
     <string name="third_tab">Third Tab</string>
@@ -37,12 +38,14 @@
     <string name="msg_lifecycle_info">This is a simple example of Activity Lifecycle</string>
     <string name="msg_floatingtext_info">This is an example f how to implement Floating Edit Texts on Android. Note this example do not use Support Design Library, that is strongly recommended to use it instead the presented approach.</string>
     <string name="msg_collapsing_toolbar">This is an example of collapsing toolbar.</string>
-
-
+    <string name="msg_parsing_xml">This is an example of parsing XML. In this case, the
+        website TechCrunch's article was source for our parse. </string>
     <string name="hello_world">Hello world!</string>
     <string name="lbl_collapsing_toolbar">Collapsing Toolbar Example</string>
     <string name="lbl_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. \n\nCras
     volutpat magna ac feugiat luctus. \n\nPellentesque aliquet bibendum libero tempor ultrices. \n\nIn
         efficitur, tortor sed congue tempus, mauris ante vulputate dolor, id accumsan quam ex vitae nisl. \n\nIn viverra semper felis. \n\nQuisque at congue dolor, et hendrerit augue. \n\nProin eu velit augue. \n\nPraesent nisl odio, lacinia a scelerisque in, posuere a ex. \n\nProin in ligula vel elit varius fermentum. \n\nNullam id molestie odio, id facilisis nisl. \n\nInteger vitae nisl felis. \n\nNunc non quam et enim lacinia auctor. \n\nNulla facilisi. \n\nPraesent ante eros, accumsan eu nibh eget, scelerisque pellentesque justo. \n\nEtiam vitae dapibus dui, a accumsan felis. \n\nCurabitur vulputate sem ut libero laoreet, hendrerit aliquam urna fermentum. \n\nCurabitur rutrum, lacus eget pharetra posuere, dolor nulla vehicula ante, et porta turpis metus eu libero. \n\nUt nec interdum sapien, nec ornare est. \n\nSed quis quam hendrerit, tempor arcu vitae, ornare massa. \n\nPraesent fermentum neque at mauris malesuada, ut aliquam lacus maximus. \n\nPhasellus ullamcorper dui mi, ut dapibus dolor efficitur vel. \n\nInteger non lectus ipsum. \n\nAenean tincidunt sit amet lacus eget convallis. \n\nDonec imperdiet, lorem sit amet imperdiet lacinia, urna dolor tristique turpis, non vulputate velit mauris vitae nisi. \n\nFusce at nisi dolor. \n\nVestibulum suscipit a massa ornare tincidunt. \n\nProin pulvinar, lorem non placerat iaculis, magna tellus malesuada ligula, egestas tincidunt eros mauris id libero. \n\nDuis tempor pretium ipsum, vel pellentesque lorem semper et. \n\nNulla eget ligula ut quam iaculis vulputate. \n\nVivamus accumsan felis euismod egestas viverra. \n\nEtiam laoreet efficitur erat, nec blandit purus pretium eget. \n\nNulla id ultricies nisl, sit amet efficitur elit. \n\nProin tristique tellus vitae dolor tristique tristique. \n\nPraesent egestas ante felis, vel scelerisque erat elementum et. \n\nCurabitur consequat leo id placerat venenatis. \n\nInterdum et malesuada fames ac ante ipsum primis in faucibus. \n\nDonec et lectus lorem. \n\nPellentesque in nibh venenatis, scelerisque justo id, tempor lacus. \n\nCurabitur porttitor volutpat lacus vel fringilla. \n\nPellentesque placerat quam vitae ligula porttitor mollis. \n\nNulla rutrum justo a nibh rutrum molestie. \n\nUt fringilla mi eu urna hendrerit pulvinar. \n\nDuis tincidunt scelerisque orci sed tincidunt. \n\nIn egestas arcu elit, et auctor leo pulvinar id. \n\nDuis libero mi, finibus quis odio nec, porttitor sollicitudin purus. \n\nAliquam dictum dapibus justo at pretium. \n\nIn aliquet aliquam egestas. \n\nPellentesque hendrerit maximus urna at scelerisque. \n\nPhasellus tincidunt auctor odio, vitae congue augue suscipit at. \n\nVivamus et condimentum turpis. \n\nEtiam volutpat felis quis elementum pharetra. \n\nAliquam quam risus, dictum id suscipit sed, auctor quis nunc. \n\nVivamus eu tempus velit. \n\nUt quis enim placerat, dictum urna eget, dapibus tellus. \n\nNam odio dolor, ultrices sit amet diam nec, luctus laoreet enim. \n\nMorbi auctor ligula vel ipsum porttitor, ut semper turpis consectetur. \n\nDonec pharetra pretium elit sit amet iaculis. \n\nDonec vitae nisi varius dui pharetra condimentum. \n\nNunc id sagittis lacus. \n\nPellentesque eget lobortis nibh. \n\nFusce vestibulum tincidunt mi sed egestas. \n\nDonec semper magna eget leo facilisis, ut volutpat neque condimentum. \n\nCurabitur molestie risus vitae pulvinar lobortis. \n\nNulla ligula tortor, sagittis quis bibendum vel, auctor quis neque. \n\nIn ultricies auctor suscipit. \n\nPellentesque a luctus eros. \n\nAliquam at porta ex, non laoreet nisl. \n\nMorbi venenatis, odio vitae faucibus consectetur, mi sapien sagittis ligula, at fringilla eros elit ac quam.</string>
+    <string name="lbl_parse_xml">Parsing XML Example</string>
+
 
 </resources>

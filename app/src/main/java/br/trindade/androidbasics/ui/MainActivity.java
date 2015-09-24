@@ -14,7 +14,7 @@ import br.trindade.androidbasics.util.AndroidUtil;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBtnLifecycle, mBtnSwipeTabs, mBtnFloatEdtTxt, mBtnSavingFiles, mBtnVolley,
-    mBtnCollapseToolbar;
+    mBtnCollapseToolbar, mBtnParseXML;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnVolley.setOnClickListener(this);
         mBtnCollapseToolbar = AndroidUtil.get(findViewById(R.id.btn_collapse_toolbar));
         mBtnCollapseToolbar.setOnClickListener(this);
+        mBtnParseXML = AndroidUtil.get(findViewById(R.id.btn_parse_xml));
+        mBtnParseXML.setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this, VolleyActivity.class)); break;
             case R.id.btn_collapse_toolbar:
                 startActivity(new Intent(MainActivity.this, CollapseToolbarActivity.class)); break;
+            case R.id.btn_parse_xml:
+                startActivity(new Intent(MainActivity.this, ParseXMLActivity.class)); break;
         }
     }
 }
