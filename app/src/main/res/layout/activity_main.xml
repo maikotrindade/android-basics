@@ -58,4 +58,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/lbl_parse_xml" />
+
+    <Button
+        android:id="@+id/btn_butterknife"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/lbl_butterknife" />
+
 </LinearLayout>
