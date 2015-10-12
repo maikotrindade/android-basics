@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import br.trindade.androidbasics.util.AndroidUtil;
+import retrofit.http.HEAD;
 
 /**
  * @author maiko.trindade
@@ -14,7 +15,7 @@ import br.trindade.androidbasics.util.AndroidUtil;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBtnLifecycle, mBtnSwipeTabs, mBtnFloatEdtTxt, mBtnSavingFiles, mBtnVolley,
-    mBtnCollapseToolbar, mBtnParseXML, mBtnRetrofit;
+            mBtnCollapseToolbar, mBtnParseXML, mBtnButterKnife, mBtnRetrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,27 +41,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnParseXML.setOnClickListener(this);
         mBtnRetrofit = AndroidUtil.get(findViewById(R.id.btn_retrofit));
         mBtnRetrofit.setOnClickListener(this);
+        mBtnButterKnife = AndroidUtil.get(findViewById(R.id.btn_butterknife));
+        mBtnButterKnife.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_lifecycle:
-                startActivity(new Intent(MainActivity.this, LifecycleActivity.class)); break;
+                startActivity(new Intent(MainActivity.this, LifecycleActivity.class));
+                break;
             case R.id.btn_swipe_tabs:
-                startActivity(new Intent(MainActivity.this, SwipeTabsActivity.class)); break;
+                startActivity(new Intent(MainActivity.this, SwipeTabsActivity.class));
+                break;
             case R.id.btn_floating_edit_text:
-                startActivity(new Intent(MainActivity.this, FloatingEditTextActivity.class)); break;
+                startActivity(new Intent(MainActivity.this, FloatingEditTextActivity.class));
+                break;
             case R.id.btn_saving_files:
-                startActivity(new Intent(MainActivity.this, SavingFilesActivity.class)); break;
+                startActivity(new Intent(MainActivity.this, SavingFilesActivity.class));
+                break;
             case R.id.btn_volley:
-                startActivity(new Intent(MainActivity.this, VolleyActivity.class)); break;
+                startActivity(new Intent(MainActivity.this, VolleyActivity.class));
+                break;
             case R.id.btn_collapse_toolbar:
-                startActivity(new Intent(MainActivity.this, CollapseToolbarActivity.class)); break;
+                startActivity(new Intent(MainActivity.this, CollapseToolbarActivity.class));
+                break;
             case R.id.btn_parse_xml:
-                startActivity(new Intent(MainActivity.this, ParseXMLActivity.class)); break;
+                startActivity(new Intent(MainActivity.this, ParseXMLActivity.class));
+                break;
             case R.id.btn_retrofit:
-                startActivity(new Intent(MainActivity.this, RetrofitActivity.class)); break;
+                startActivity(new Intent(MainActivity.this, RetrofitActivity.class));
+                break;
+            case R.id.btn_butterknife:
+                startActivity(new Intent(MainActivity.this, ButterKnifeActivity.class));
+                break;
         }
     }
 }

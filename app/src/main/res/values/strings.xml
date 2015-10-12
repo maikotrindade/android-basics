@@ -39,8 +39,7 @@
     <string name="msg_lifecycle_info">This is a simple example of Activity Lifecycle</string>
     <string name="msg_floatingtext_info">This is an example f how to implement Floating Edit Texts on Android. Note this example do not use Support Design Library, that is strongly recommended to use it instead the presented approach.</string>
     <string name="msg_collapsing_toolbar">This is an example of collapsing toolbar.</string>
-    <string name="msg_parsing_xml">This is an example of parsing XML. In this case, the
-        website TechCrunch\'s article was source for our parse. </string>
+    <string name="msg_parsing_xml">This is an example of parsing XML. In this case, the website TechCrunch\'s article was source for our parse. </string>
     <string name="hello_world">Hello world!</string>
     <string name="lbl_collapsing_toolbar">Collapsing Toolbar Example</string>
     <string name="lbl_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. \n\nCras
@@ -55,5 +54,7 @@
     <string name="txt_name">Name</string>
     <string name="txt_location">Location</string>
     <string name="txt_blog">Blog</string>
-
+    <string name="title_activity_butterknife">ButterknifeActivity</string>
+    <string name="msg_butterknife_info">This is an example of ButterKnife usage</string>
+    <string name="lbl_butterknife">Butterknife Example</string>
 </resources>
