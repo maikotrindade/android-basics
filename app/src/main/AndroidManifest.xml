@@ -74,6 +74,8 @@
             android:name=".ParseXMLActivity"
             android:label="@string/title_activity_parse_xml" >
         </activity>
+        <activity android:name=".RetrofitActivity" >
+        </activity>
     </application>
 
 </manifest>
